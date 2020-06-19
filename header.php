@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-    
-    <?php if (is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); wp_head(); ?>
+    <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); wp_head(); ?>
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Template com Bootstrap</title>
+    <title><?php bloginfo('name'); ?></title>
 
     <!-- Bootstrap -->
     <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap_tema.min.css" rel="stylesheet">
@@ -39,11 +39,12 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="identificacaoMenu">
             <ul class="nav navbar-nav">
-             <?php wp_list_categories('sort_regular'); ?>
+              <?php wp_list_cats('sort_column=name'); ?>
+
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-            <?php wp_list_pages('title_li'); ?>
+              <?php wp_list_pages('title_li='); ?>
 
             </ul>
           </div><!-- /.navbar-collapse -->
